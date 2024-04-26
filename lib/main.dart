@@ -1,43 +1,39 @@
+import 'package:rodriguez/uno.dart';
+import 'package:rodriguez/dos.dart';
+import 'package:rodriguez/tres.dart';
 import 'package:flutter/material.dart';
+import 'package:rodriguez/drawer_menu.dart';
+import 'package:rodriguez/cuatro.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  static const String uno = Uno.routeName;
+  static const String dos = Dos.routeName;
+  static const String tres = Tres.routeName;
+  static const String cuatro = Cuatro.routeName;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      debugShowCheckedModeBanner: false,
+      title: 'Ejemplo Drawer Menu',
       theme: ThemeData(
-        // useMaterial3: false,
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        uno: (context) => Uno(),
+        dos: (context) => Dos(),
+        tres: (context) => Tres(),
+        cuatro: (context) => Cuatro()
+      },
+      home: Uno(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
-    );
-  }
-}
+class Mov {}
